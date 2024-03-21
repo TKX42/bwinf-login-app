@@ -3,22 +3,28 @@ import Login from './components/Login.vue';
 import Registration from './components/Registration.vue';
 import { ref } from 'vue'
 
-let isLoggedIn=ref(false)
+function renderGalleryItem(){
+  fetch(`https://source.unsplash.com/collection/1319040/1100x550/?sig=${Math.floor(Math.random() * 7017)}`) .then((response)=> {    
+    let galleryItem = document.createElement('div');
+    galleryItem.classList.add('gallery-item');
+    galleryItem.innerHTML = `<img class="gallery-image" style="width:100%" src="${response.url}" alt="gallery image"/>`
+    document.body.appendChild(galleryItem);
+  })
+}
 </script>
 
 <template>
-  <div v-if="!isLoggedIn" class="flex flex-col">
-    <h1 class="text-3xl font-bold mx-auto p-4">
-      This is a login dialogue
-    </h1>
-    <div class="flex flex-row mx-auto">
-      <button @click="isLoggedIn = !isLoggedIn" class="p-4 m-4 rounded-lg font-sans font-bold text-white bg-sky-500 hover:bg-sky-700">Login</button>
-      <button class="p-4 m-4 rounded-lg font-sans font-bold bg-sky-500 hover:bg-sky-700 text-white">Registration</button>
+  <div class="navbar bg-base-100">
+    <div class="flex-1">
+      <h1 class="text-xl font-semibold m-6">Logo here</h1>
     </div>
+    <div class="flex-none">
+      <button class="btn btn-primary btn-normal w-24 m-6">Login</button>
+      <button class="btn btn-secondary btn-normal w-24 m-6">Register</button>
+    </div>
+    <img source=renderItem></img>
   </div>
-  <div v-if="isLoggedIn" class="flex flex-row">
-    <Login class="mx-auto"></Login>
-  </div>
+  <img class="gallery-container w-max" :src="renderGalleryItem()"></img>
 </template>
 
 <style scoped>
