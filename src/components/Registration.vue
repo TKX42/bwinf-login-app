@@ -41,7 +41,7 @@ export default {
       </svg>
       <input type="password" class="grow" value="" placeholder="Repeat Password" v-model="passwordInput2" />
     </label>
-    <button class="btn btn-primary rounded-lg">Register →</button>
+    <button class="btn btn-primary rounded-lg w-1/2">Register →</button>
     <div class="divider">Or</div>
     <button
       class="flex items-center bg-white border border-gray-300 rounded-full px-4 py-2 hover:shadow-sm hover:shadow-white">
@@ -63,7 +63,7 @@ export default {
       </form>
     </div>
   </div>
-  <form method="dialog" class="modal-backdrop backdrop-hue-rotate-90 backdrop-blur">
+  <form method="dialog" class="modal-backdrop backdrop-blur">
     <button>close</button>
   </form>
 </template>
