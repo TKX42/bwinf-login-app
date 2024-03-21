@@ -3,7 +3,7 @@ import Login from './components/Login.vue';
 import Registration from './components/Registration.vue';
 import { ref } from 'vue'
 
-let isLoggedIn=ref(false)
+let isLoggedIn = ref(false)
 </script>
 
 <template>
@@ -12,14 +12,18 @@ let isLoggedIn=ref(false)
       This is a login dialogue
     </h1>
     <div class="flex flex-row mx-auto">
-      <button @click="isLoggedIn = !isLoggedIn" class="p-4 m-4 rounded-lg font-sans font-bold text-white bg-sky-500 hover:bg-sky-700">Login</button>
-      <button class="p-4 m-4 rounded-lg font-sans font-bold bg-sky-500 hover:bg-sky-700 text-white">Registration</button>
+      <button onclick="login.showModal()"
+        class="p-4 m-4 rounded-lg font-sans font-bold text-white bg-sky-500 hover:bg-sky-700">Login</button>
+      <button onclick="register.showModal()"
+        class="p-4 m-4 rounded-lg font-sans font-bold bg-sky-500 hover:bg-sky-700 text-white">Registration</button>
     </div>
   </div>
-  <div v-if="isLoggedIn" class="flex flex-row">
-    <Login class="mx-auto"></Login>
-  </div>
+  <dialog id="login" class="modal modal-bottom sm:modal-middle">
+    <Login></Login>
+  </dialog>
+  <dialog id="register" class="modal modal-bottom sm:modal-middle">
+    <Registration></Registration>
+  </dialog>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
