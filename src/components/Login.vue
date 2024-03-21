@@ -3,8 +3,41 @@ export default {
   data() {
     return {
       emailInput: '',
+      password: '',
     };
   },
+
+  methods: {
+    async loginUser(email, password) {
+    try {
+      const response = await fetch('https://qaware-login-backend.fly.dev/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Login failed. Please check your credentials and try again.');
+      }
+  
+      const data = await response.json();
+      console.log('Login successful:', data);
+      // Handle login success (e.g., storing the JWT, redirecting the user)
+    } catch (error) {
+      console.error('Login error:', error);
+      // Handle login errors (e.g., displaying an error message)
+    }
+  },
+
+    login() {
+      this.loginUser(this.emailInput, this.password);
+    }
+  }
 };
 </script>
 
@@ -29,9 +62,9 @@ export default {
           d="M14 6a4 4 0 0 1-4.899 3.899l-1.955 1.955a.5.5 0 0 1-.353.146H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.293a.5.5 0 0 1 .146-.353l3.955-3.955A4 4 0 1 1 14 6Zm-4-2a.75.75 0 0 0 0 1.5.5.5 0 0 1 .5.5.75.75 0 0 0 1.5 0 2 2 0 0 0-2-2Z"
           clip-rule="evenodd" />
       </svg>
-      <input type="password" class="grow" value="" placeholder="Password" />
+      <input type="password" class="grow" value="" placeholder="Password" v-model="password"/>
     </label>
-    <button class="btn btn-primary rounded-lg">Login →</button>
+    <button class="btn btn-primary rounded-lg" @click="this.login">Login →</button>
     <div class="divider">Or</div>
     <button
       class="flex items-center bg-white border border-gray-300 rounded-full px-4 py-2 hover:shadow-sm hover:shadow-white">

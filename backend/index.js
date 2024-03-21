@@ -21,6 +21,11 @@ async function run() {
 
     // Use routes
     app.use('/api/auth', authRoutes);
+    app.use((req, res, next) => {
+      res.header("Access-Control-Allow-Origin", "*");
+      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+      next();
+    });
 
     const PORT = 3000;
     app.listen(PORT, () => {
