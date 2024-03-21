@@ -4,7 +4,7 @@ import Registration from './components/Registration.vue';
 import { ref } from 'vue'
 
 function renderGalleryItem(){
-  fetch(`https://source.unsplash.com/collection/1319040/1100x550/?sig=${Math.floor(Math.random() * 7017)}`) .then((response)=> {    
+  fetch(`https://source.unsplash.com/collection/1319040/1100x580/?sig=${Math.floor(Math.random() * 7017)}`) .then((response)=> {    
     let galleryItem = document.createElement('div');
     galleryItem.classList.add('gallery-item');
     galleryItem.innerHTML = `<img class="gallery-image" style="width:100%" src="${response.url}" alt="gallery image"/>`
