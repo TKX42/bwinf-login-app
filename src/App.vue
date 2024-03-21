@@ -16,7 +16,7 @@ function renderGalleryItem(){
 <template>
   <div class="navbar bg-base-100">
     <div class="flex-1">
-      <h1 class="text-xl font-semibold m-6">Our small ligin-UI-demo</h1>
+      <h1 class="text-xl font-semibold m-6">Our small little-UI-demo</h1>
     </div>
     <div class="flex-none">
       <button class="btn btn-primary btn-normal w-24 m-6" onclick="login.showModal()">Login</button>
