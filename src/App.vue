@@ -19,13 +19,18 @@ function renderGalleryItem(){
       <h1 class="text-xl font-semibold m-6">Logo here</h1>
     </div>
     <div class="flex-none">
-      <button class="btn btn-primary btn-normal w-24 m-6">Login</button>
-      <button class="btn btn-secondary btn-normal w-24 m-6">Register</button>
+      <button class="btn btn-primary btn-normal w-24 m-6" onclick="login.showModal()">Login</button>
+      <button class="btn btn-secondary btn-normal w-24 m-6" onclick="register.showModal()">Register</button>
     </div>
     <img source=renderItem></img>
   </div>
+  <dialog id="login" class="modal modal-bottom sm:modal-middle">
+    <Login></Login>
+  </dialog>
+  <dialog id="register" class="modal modal-bottom sm:modal-middle">
+    <Registration></Registration>
+  </dialog>
   <img class="gallery-container w-max" :src="renderGalleryItem()"></img>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
